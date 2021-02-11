@@ -1,17 +1,34 @@
 .navbar {
-    top: 0;
-    position: absolute;
+    display: flex;
+    justify-content: space-between;
     width: 100%;
     height: 80px;
-    background-color: aliceblue;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 100px 0 lightgray;
 }
 
 .navbar img {
-    height: 70px;
+    height: 110px;
+    margin-top: -25px;
+    cursor: pointer;
+}
+
+.cart-box {
+    height: 80%;
+    width: 100px;
+    background-color: #007cc3;
+    cursor: pointer;
+}
+
+.cart-box img {
+    margin: 15% 0 0 15%;
+    height: 30px;
+    width: 30px;
 }
 
 .content {
-    min-height: 100vh;
+    position: relative;
+    min-height: 100%;
 }
 
 .footer {
