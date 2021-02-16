@@ -1,1 +1,10 @@
-<p>cart works!</p>
+<button (click)="onEmptyCart()" class="empty-cart-button">Tühjenda ostukorv</button>
+
+<div class="items-wrapper">
+  <div class="item" *ngFor="let item of itemsInCart; let i = index">
+    <img src="{{ item.imgSrc }}">
+    <div class="item-title">{{ item.title }}</div>
+    <div class="item-price">{{ item.price }} €</div>
+    <button (click)="onDeleteFromCart(i)" class="delete-from-cart-button">X</button>
+  </div>
+</div>

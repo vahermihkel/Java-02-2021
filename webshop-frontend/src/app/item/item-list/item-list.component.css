@@ -19,3 +19,19 @@
 .item-title, .item-price {
   margin: 10px;
 }
+
+.add-to-cart-button {
+ position: absolute;
+ background-color: white  ;
+ margin-top: -40px;
+ margin-left: 98px;
+ visibility: hidden; 
+ box-shadow: 0 0 10px 0 lightgray;
+ border-radius: 30px;
+ padding: 10px;
+ cursor: pointer;
+}
+
+.item:hover .add-to-cart-button {
+  visibility: visible;   
+ }

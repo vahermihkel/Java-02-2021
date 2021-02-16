@@ -1,4 +1,6 @@
 .navbar {
+    position: fixed;
+    top: 0;
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -8,7 +10,7 @@
 }
 
 .navbar img {
-    height: 110px;
+    height: 105px;
     margin-top: -25px;
     cursor: pointer;
 }
@@ -27,12 +29,11 @@
 }
 
 .content {
-    position: relative;
+    margin-top: 80px;
     min-height: 100%;
 }
 
 .footer {
-    position: absolute;
     bottom: 0;
     width: 100%;
     height: 50px;
