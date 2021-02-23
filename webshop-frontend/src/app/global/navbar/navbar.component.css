@@ -1,0 +1,38 @@
+.navbar {
+  z-index: 999;
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 80px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 100px 0 lightgray;
+}
+
+.navbar img {
+  height: 105px;
+  margin-top: -25px;
+  cursor: pointer;
+}
+
+.cart-box {
+  height: 80%;
+  width: 140px;
+  background-color: #007cc3;
+  cursor: pointer;
+}
+
+.cart-box img {
+  margin: 15% 0 0 15%;
+  height: 30px;
+  width: 30px;
+}
+
+.cart-box span {
+  color: white
+}
+
+.cart-box:hover span {
+  color: #a3cce4;
+}

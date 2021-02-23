@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Item } from '../item/item.model';
 import { CartService } from './cart.service'
 
 @Component({
@@ -7,28 +8,29 @@ import { CartService } from './cart.service'
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  itemsInCart: {
-    imgSrc: string;
-    title: string;
-    price: string;
-    category: string;
-}[] = [];
+  itemsInCart: Item[] = [];
+  sumOfCart: number = 0;
 
   constructor(private cartService: CartService) { 
   }
 
   ngOnInit(): void {
-    this.itemsInCart = this.cartService.cartItems;
+    this.itemsInCart = this.cartService.getItemsFromCart();
+    this.sumOfCart = this.cartService.calculateSumOfCart();
   }
 
   onEmptyCart() {
-    this.cartService.cartItems = [];
-    this.itemsInCart = this.cartService.cartItems;
+    this.cartService.emptyCart();
+    this.itemsInCart = this.cartService.getItemsFromCart();
+    this.sumOfCart = this.cartService.calculateSumOfCart();
   }
 
   onDeleteFromCart(i: number) {
-    this.cartService.cartItems.splice(i,1);
-    this.itemsInCart = this.cartService.cartItems;
+    this.cartService.deleteFromCart(i);
+    this.itemsInCart = this.cartService.getItemsFromCart();
+    this.sumOfCart = this.cartService.calculateSumOfCart();
   }
+
+  
 
 }

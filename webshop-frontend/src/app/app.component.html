@@ -1,8 +1,7 @@
-<div class="navbar">
-    <img routerLink="/" src="assets\webshio.png">
-    <div class="cart-box" routerLink="cart"><img src="assets/shopping-cart.svg" alt=""></div>
+<div class="page">
+    <app-navbar></app-navbar>
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+    <app-footer></app-footer>
 </div>
-<div class="content">
-    <router-outlet></router-outlet>
-</div>
-<div class="footer"></div>

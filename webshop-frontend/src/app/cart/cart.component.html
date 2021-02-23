@@ -1,10 +1,20 @@
-<button (click)="onEmptyCart()" class="empty-cart-button">Tühjenda ostukorv</button>
-
-<div class="items-wrapper">
-  <div class="item" *ngFor="let item of itemsInCart; let i = index">
-    <img src="{{ item.imgSrc }}">
-    <div class="item-title">{{ item.title }}</div>
-    <div class="item-price">{{ item.price }} €</div>
-    <button (click)="onDeleteFromCart(i)" class="delete-from-cart-button">X</button>
+<div *ngIf="itemsInCart.length > 0">
+  <div class="item-count">Ostukorvis on {{ itemsInCart.length }} eset</div>
+  <button (click)="onEmptyCart()" class="empty-cart-button">Tühjenda ostukorv</button>
+  <br><br>
+  <div class="items-wrapper">
+    <div class="item" *ngFor="let item of itemsInCart; let i = index">
+      <img src="{{ item.imgSrc }}">
+      <div class="item-title">{{ item.title }}</div>
+      <div class="item-price">{{ item.price }} €</div>
+      <img (click)="onDeleteFromCart(i)" class="delete-from-cart-button" src="assets/bin.svg" alt="">
+    </div>
   </div>
+
+  <div class="sum-of-cart">{{ sumOfCart.toFixed(2) }} €</div>
+</div>
+
+<div class="empty-cart" *ngIf="itemsInCart.length == 0">
+  <img src="assets/cart-sad.svg">
+  <span>Ostukorv on tühi</span>
 </div>
