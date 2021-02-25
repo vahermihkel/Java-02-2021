@@ -1,1 +1,13 @@
-<p>item-add works!</p>
+<button class="main-button back" routerLink="/admin">Tagasi</button>
+
+<form (ngSubmit)="onSubmit(itemAddForm)" #itemAddForm="ngForm">
+  <label>Nimetus:</label><br>
+  <input type="text" name="title" ngModel required><br>
+  <label>Hind:</label><br>
+  <input type="text" name="price" ngModel required><br>
+  <label>Pilt:</label><br>
+  <input type="text" name="imgSrc" ngModel required><br>
+  <label>Kategooria:</label><br>
+  <input type="text" name="category" ngModel required><br>
+  <button [disabled]="itemAddForm.invalid" class="main-button add">Sisesta</button>
+</form>
