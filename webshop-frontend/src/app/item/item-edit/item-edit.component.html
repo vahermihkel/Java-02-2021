@@ -1,1 +1,13 @@
-<p>item-edit works!</p>
+<button class="main-button back" routerLink="/admin">Tagasi</button>
+
+<form (ngSubmit)="onSubmit(itemEditForm)" [formGroup]="itemEditForm">
+  <label>Nimetus:</label><br>
+  <input type="text" formControlName="title" required><br>
+  <label>Hind:</label><br>
+  <input type="text" formControlName="price" required><br>
+  <label>Pilt:</label><br>
+  <input type="text" formControlName="imgSrc" required><br>
+  <label>Kategooria:</label><br>
+  <input type="text" formControlName="category" required><br>
+  <button [disabled]="itemEditForm.invalid" class="main-button add">Sisesta</button>
+</form>
