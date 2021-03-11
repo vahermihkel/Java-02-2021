@@ -10,10 +10,25 @@
   box-shadow: 0 0 100px 0 lightgray;
 }
 
-.navbar img {
+.navbar .logo {
   height: 105px;
   margin-top: -25px;
   cursor: pointer;
+}
+
+.lang-1, .lang-2 {
+  height: 30px;
+  top: 40px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.lang-1 {
+  right: 150px;
+}
+
+.lang-2 {
+  right: 190px; 
 }
 
 .cart-box {

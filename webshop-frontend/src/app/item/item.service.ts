@@ -11,7 +11,7 @@ export class ItemService {
   constructor() { }
 
   getItems() {
-    return this.items;
+    return this.items.slice();
   }
 
   deleteItem(i: number) {
