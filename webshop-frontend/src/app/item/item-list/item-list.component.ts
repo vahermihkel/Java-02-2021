@@ -1,5 +1,3 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { LEADING_TRIVIA_CHARS } from '@angular/compiler/src/render3/view/template';
 import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/cart/cart.service';
 import { Item } from '../item.model';
