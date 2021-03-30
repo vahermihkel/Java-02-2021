@@ -31,4 +31,8 @@ public class ItemService {
     public void editItem(Item item) {
         itemRepository.save(item);
     }
+
+    public Optional<Item> getItem(Long id) {
+        return itemRepository.findById(id);
+    }
 }

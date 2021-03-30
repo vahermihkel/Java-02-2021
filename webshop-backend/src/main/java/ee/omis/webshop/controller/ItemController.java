@@ -6,11 +6,12 @@ import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Data
 @RestController
+@CrossOrigin( origins = "http://localhost:4200" )
 public class ItemController {
 
     @Autowired
@@ -40,5 +41,10 @@ public class ItemController {
         System.out.println("ESE MUUDETUD");
         System.out.println(item);
         itemService.editItem(item);
+    }
+
+    @GetMapping("/item/{id}")
+    public Optional<Item> getItem(@PathVariable Long id) {
+        return itemService.getItem(id);
     }
 }
