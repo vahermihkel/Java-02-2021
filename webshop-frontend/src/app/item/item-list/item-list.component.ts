@@ -50,6 +50,10 @@ export class ItemListComponent implements OnInit {
     }
   }
 
+  onRemoveFromCart(item: Item) {
+    this.cartService.deleteFromCartFromHome(item);
+  }
+
   onAddToCart(item: Item ) {
     this.cartService.addToCart(item);
   }

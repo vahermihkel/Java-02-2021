@@ -46,6 +46,12 @@
  cursor: pointer;
 }
 
+.add-to-cart-button img {
+  width: 30px; 
+  height: 30px; 
+  margin: 10px;
+}
+
 .item:hover .add-to-cart-button {
   visibility: visible;   
  }

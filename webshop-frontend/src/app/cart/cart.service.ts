@@ -6,13 +6,18 @@ import { Item } from '../item/item.model';
   providedIn: 'root'
 })
 export class CartService {
-  private cartItems: Item[] = [];
-  cartChanged = new Subject<Item[]>();
+  private cartItems: {cartItem: Item, count: number}[] = [];
+  cartChanged = new Subject<{cartItem: Item, count: number}[]>();
 
   constructor() { }
 
   addToCart(item: Item) {
-    this.cartItems.push(item);
+    let i = this.cartItems.findIndex(cartItem => cartItem.cartItem.title == item.title);
+    if (i == -1) {
+      this.cartItems.push({cartItem: item, count: 1});
+    } else {
+      this.cartItems[i].count++;
+    }
     this.cartChanged.next(this.cartItems);
   }
 
@@ -25,6 +30,18 @@ export class CartService {
     this.cartChanged.next(this.cartItems);
   }
 
+  deleteFromCartFromHome(item: Item) {
+    let i = this.cartItems.findIndex(cartItem => cartItem.cartItem.title == item.title);
+    if (i != -1) {
+      if (this.cartItems[i].count == 1) {
+        this.cartItems.splice(i,1);
+      } else {
+        this.cartItems[i].count--;
+      }
+      this.cartChanged.next(this.cartItems);
+    }
+  }
+
   deleteFromCart(i: number) {
     this.cartItems.splice(i,1);
     this.cartChanged.next(this.cartItems);
@@ -33,8 +50,16 @@ export class CartService {
   calculateSumOfCart() {
     let sumOfCart = 0;
     this.cartItems.forEach(element => {
-      sumOfCart += (Number)(element.price)
+      sumOfCart += (Number)(element.cartItem.price)*element.count
     });
     return sumOfCart;
+  }
+
+  calculateCartCount() {
+    let count = 0;
+    this.cartItems.forEach(element => {
+      count += element.count
+    });
+    return count;
   }
 }
