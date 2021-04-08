@@ -17,4 +17,10 @@ export class CategoryViewComponent implements OnInit {
       );
   }
 
+  onDeleteCategory(i: number) {
+    this.categoryService.deleteCategory(i).subscribe( ()=>
+      this.categories.splice(i,1)
+    );
+  }
+
 }
